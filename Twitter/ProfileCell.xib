@@ -110,10 +110,10 @@
                 <constraints>
                     <constraint firstItem="nf5-0h-INf" firstAttribute="centerY" secondItem="0mG-nl-Uxl" secondAttribute="centerY" id="0Iz-Yg-CiL"/>
                     <constraint firstAttribute="trailing" secondItem="fpB-DN-lCB" secondAttribute="trailing" id="1ls-kI-7aF"/>
+                    <constraint firstItem="GY2-a8-eIH" firstAttribute="top" secondItem="fpB-DN-lCB" secondAttribute="bottom" constant="4" id="3Bf-aK-53Y"/>
                     <constraint firstItem="fpB-DN-lCB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="4F9-rZ-fpz"/>
                     <constraint firstItem="qRp-w4-iE1" firstAttribute="top" secondItem="NWr-Hb-L3g" secondAttribute="bottom" constant="4" id="5A1-7s-RKo"/>
                     <constraint firstItem="qRp-w4-iE1" firstAttribute="leading" secondItem="NWr-Hb-L3g" secondAttribute="leading" id="6W9-JR-OQL"/>
-                    <constraint firstItem="GY2-a8-eIH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="65" id="9Ff-KJ-7hO"/>
                     <constraint firstItem="nf5-0h-INf" firstAttribute="leading" secondItem="5GC-cO-hav" secondAttribute="trailing" constant="4" id="AaX-dn-THD"/>
                     <constraint firstItem="5HB-mM-r4h" firstAttribute="centerY" secondItem="0mG-nl-Uxl" secondAttribute="centerY" id="DHO-XN-IC1"/>
                     <constraint firstItem="Csl-ok-iW7" firstAttribute="top" secondItem="qRp-w4-iE1" secondAttribute="bottom" constant="8" id="EmP-Ak-FqB"/>
@@ -131,7 +131,6 @@
                     <constraint firstAttribute="trailing" secondItem="M29-EX-e6A" secondAttribute="trailing" id="b5k-bc-rGv"/>
                     <constraint firstItem="2nD-ve-caX" firstAttribute="centerY" secondItem="0mG-nl-Uxl" secondAttribute="centerY" id="bvx-dj-EVH"/>
                     <constraint firstItem="YhT-8b-UTj" firstAttribute="centerY" secondItem="0mG-nl-Uxl" secondAttribute="centerY" id="d47-lg-bJL"/>
-                    <constraint firstItem="1ef-7s-6aC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="50" id="dc5-PJ-L8S"/>
                     <constraint firstItem="GY2-a8-eIH" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="eBd-ip-uLs"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2nD-ve-caX" secondAttribute="trailing" constant="4" id="eRD-y3-qh6"/>
                     <constraint firstItem="M29-EX-e6A" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ekz-9c-wwB"/>
@@ -141,6 +140,7 @@
                     <constraint firstItem="0mG-nl-Uxl" firstAttribute="top" secondItem="Csl-ok-iW7" secondAttribute="bottom" constant="8" id="oWW-2F-4dL"/>
                     <constraint firstItem="hMJ-aa-g7d" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="pMu-dD-4Ky"/>
                     <constraint firstItem="Csl-ok-iW7" firstAttribute="leading" secondItem="qRp-w4-iE1" secondAttribute="leading" id="qNa-ji-7Ll"/>
+                    <constraint firstItem="1ef-7s-6aC" firstAttribute="top" secondItem="fpB-DN-lCB" secondAttribute="bottom" constant="-30" id="rwW-yF-EEx"/>
                     <constraint firstAttribute="bottom" secondItem="nf5-0h-INf" secondAttribute="bottom" constant="8" id="xhs-uE-mG0"/>
                 </constraints>
             </tableViewCellContentView>
@@ -155,6 +155,7 @@
                 <outlet property="screennameLabel" destination="qRp-w4-iE1" id="YE6-yY-56y"/>
                 <outlet property="scrollContentView" destination="j0O-mz-H9N" id="chp-9B-7XK"/>
                 <outlet property="scrollView" destination="fpB-DN-lCB" id="Iip-L0-Jcz"/>
+                <outlet property="scrollViewHeight" destination="eKP-qm-2mL" id="grn-be-1K7"/>
                 <outlet property="taglineLabel" destination="Csl-ok-iW7" id="Ofm-7J-5FS"/>
                 <outlet property="tweetsCountLabel" destination="0mG-nl-Uxl" id="ZEm-XF-HEA"/>
                 <outlet property="usernameLabel" destination="NWr-Hb-L3g" id="ndL-Oa-0Gg"/>

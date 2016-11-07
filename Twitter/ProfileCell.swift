@@ -28,6 +28,8 @@ class ProfileCell: UITableViewCell, UIScrollViewDelegate {
     
     @IBOutlet weak var page1: UIView!
     @IBOutlet weak var page2: UIView!
+    
+    @IBOutlet weak var scrollViewHeight: NSLayoutConstraint!
 
     var userProfile: UserProfile! {
         didSet {

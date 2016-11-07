@@ -14,6 +14,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     var currTweets: [Tweet]!
     var currProfile: UserProfile!
     var timeline: String!
+    var scrollViewHeight: NSLayoutConstraint?
+    var origScrollViewHeight: CGFloat?
+    var profileCell: ProfileCell?
+    var blurEffectView: UIVisualEffectView?
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -148,6 +152,16 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                 profileCell.userProfile = currProfile
                 
             }
+            scrollViewHeight = profileCell.scrollViewHeight
+            if origScrollViewHeight != nil {
+                profileCell.scrollViewHeight.constant = origScrollViewHeight!
+            } else {
+                origScrollViewHeight = scrollViewHeight?.constant
+
+            }
+            self.profileCell = profileCell
+            
+            print ("Profile cell Height: \(origScrollViewHeight)")
             return profileCell
             
         } else {
@@ -170,6 +184,35 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print ("In profile scroll: \(scrollView.contentOffset.y)")
+
+        let y: CGFloat = -scrollView.contentOffset.y
+        
+        if (y >= 0) {
+            let blurEffect: UIBlurEffect = UIBlurEffect(style: y > origScrollViewHeight! ? .extraLight : .regular)
+
+            if (blurEffectView == nil) {
+                blurEffectView = UIVisualEffectView(effect: blurEffect)
+                blurEffectView?.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.flexibleHeight.rawValue | UIViewAutoresizing.flexibleHeight.rawValue)
+                blurEffectView?.frame = (profileCell?.bannerImageView.bounds)!
+                
+            } else {
+                blurEffectView?.effect = blurEffect
+            }
+            scrollViewHeight?.constant = origScrollViewHeight! + y
+            profileCell?.layoutIfNeeded()
+            UIView.setAnimationsEnabled(false)
+            tableView.beginUpdates()
+            tableView.endUpdates()
+            UIView.setAnimationsEnabled(true)
+        }
+        
+        if y > 0 {
+            profileCell?.bannerImageView.addSubview(blurEffectView!)
+        } else {
+            blurEffectView?.removeFromSuperview()
+        }
+        
         if (!isMoreDataLoading) {
             // Calculate the position of one screen length before the bottom of the results
             let scrollViewContentHeight = tableView.contentSize.height
