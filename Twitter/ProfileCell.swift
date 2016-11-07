@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileCell: UITableViewCell {
+class ProfileCell: UITableViewCell, UIScrollViewDelegate {
 
     @IBOutlet weak var bannerImageView: UIImageView!
     
@@ -22,7 +22,13 @@ class ProfileCell: UITableViewCell {
     @IBOutlet weak var follwersCountLabel: UILabel!
     
     @IBOutlet weak var followingCountLabel: UILabel!
+    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var scrollContentView: UIView!
     
+    @IBOutlet weak var page1: UIView!
+    @IBOutlet weak var page2: UIView!
+
     var userProfile: UserProfile! {
         didSet {
             setProfileCellView()
@@ -35,12 +41,31 @@ class ProfileCell: UITableViewCell {
         profileImageView.layer.cornerRadius = 3
         profileImageView.clipsToBounds = true
 
+        configurePageControl()
     }
 
+    func configurePageControl() {
+        scrollView.delegate = self
+        pageControl.numberOfPages = 2
+        pageControl.currentPage = 0
+        pageControl.pageIndicatorTintColor = UIColor.black
+        pageControl.currentPageIndicatorTintColor = UIColor.green
+    }
+    
+    @IBAction func pageChange(_ sender: AnyObject) {
+        bannerImageView.alpha = pageControl.currentPage == 1 ? 1.0: 0.5
+    }
+    
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        pageControl.currentPage = Int(round(scrollView.contentOffset.x / scrollView.frame.width))
+        bannerImageView.alpha = pageControl.currentPage == 1 ? 1.0: 0.5
+    }
+    
     func setProfileCellView() {
         if let bannerUrl = userProfile.profileBannerUrl {
             bannerImageView.setImageWith(bannerUrl)
-            bannerImageView.alpha = 0.5
+            //bannerImageView.alpha = 0.5
         }
 
         if let profileUrl = userProfile.profileUrl {

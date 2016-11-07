@@ -148,7 +148,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                 profileCell.userProfile = currProfile
                 
             }
-            
             return profileCell
             
         } else {
