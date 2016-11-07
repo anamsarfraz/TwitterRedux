@@ -52,6 +52,12 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         navigationItem.title = user?.name ?? ""
         navigationController?.navigationBar.isTranslucent = false
         
+        // Add gesture recognizer
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(onLongPress))
+        
+        //longPress.delegate = self
+        navigationController?.navigationBar.addGestureRecognizer(longPress)
+        
         // Create a UIRefreshControl instance and add it to tweets table view
         
         refreshControl.addTarget(self, action: #selector(refreshUserTimeline), for: UIControlEvents.valueChanged)
@@ -115,6 +121,18 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             self.tableView.reloadData()
             refreshControl.endRefreshing()
         }
+    }
+    
+    func onLongPress(sender: UILongPressGestureRecognizer) {
+        print ("Long Press Happened")
+        
+        if sender.state == .ended {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let accountsViewController = storyboard.instantiateViewController(withIdentifier: "AccountsViewController") as! AccountsViewController
+            show(accountsViewController, sender: self)
+
+        }
+
     }
     
     func tweetCell(tweetCell: TweetCell, sender: AnyObject) {

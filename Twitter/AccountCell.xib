@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="177" id="KGk-i7-Jjw" customClass="AccountCell" customModule="Twitter" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="363" height="177"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <frame key="frameInset" width="363" height="176"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PU2-FP-Cmt">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="bAh-7f-niA"/>
+                            <constraint firstAttribute="height" constant="100" id="es5-5J-DMx"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggW-Au-8wo">
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user_screen_name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvJ-W2-StU">
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="PU2-FP-Cmt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Ilp-en-JOa"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gvJ-W2-StU" secondAttribute="bottom" constant="8" id="P3M-Ug-swg"/>
+                    <constraint firstItem="ggW-Au-8wo" firstAttribute="leading" secondItem="PU2-FP-Cmt" secondAttribute="trailing" constant="8" id="Seu-ux-Wr0"/>
+                    <constraint firstItem="gvJ-W2-StU" firstAttribute="leading" secondItem="ggW-Au-8wo" secondAttribute="leading" id="TMu-83-StB"/>
+                    <constraint firstItem="gvJ-W2-StU" firstAttribute="top" secondItem="ggW-Au-8wo" secondAttribute="bottom" constant="8" id="VvB-cf-5cB"/>
+                    <constraint firstItem="PU2-FP-Cmt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="bUV-tP-sMv"/>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="PU2-FP-Cmt" secondAttribute="bottom" constant="8" id="om0-kA-fof"/>
+                    <constraint firstItem="ggW-Au-8wo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="xde-mS-DWC"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="profileImageView" destination="PU2-FP-Cmt" id="R0K-Jg-2aK"/>
+                <outlet property="screenNameLabel" destination="gvJ-W2-StU" id="xiO-fP-JnQ"/>
+                <outlet property="userNameLabel" destination="ggW-Au-8wo" id="ffF-5n-baE"/>
+            </connections>
+            <point key="canvasLocation" x="53.5" y="109.5"/>
+        </tableViewCell>
+    </objects>
+</document>
